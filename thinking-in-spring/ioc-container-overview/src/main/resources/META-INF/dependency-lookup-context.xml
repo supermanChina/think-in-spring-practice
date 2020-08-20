@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- services -->
+    <bean id="user" class="org.geekbang.thinking.in.spring.ioc.overview.domain.User">
+        <property name="id" value="1"/>
+        <property name="name" value="James"/>
+    </bean>
+
+    <bean id="objectFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName" value="user"/>
+    </bean>
+
+    <bean id="superUser" class="org.geekbang.thinking.in.spring.ioc.overview.domain.SuperUser" parent="user"
+          primary="true">
+        <property name="address" value="China"/>
+        <property name="id" value="2"/>
+        <property name="name" value="SuperJames"/>
+    </bean>
+
+    <!--    <bean id="petStore" class="org.springframework.samples.jpetstore.services.PetStoreServiceImpl">-->
+    <!--        <property name="accountDao" ref="accountDao"/>-->
+    <!--        <property name="itemDao" ref="itemDao"/>-->
+    <!--        &lt;!&ndash; additional collaborators and configuration for this bean go here &ndash;&gt;-->
+    <!--    </bean>-->
+
+    <!-- more bean definitions for services go here -->
+
+</beans>
